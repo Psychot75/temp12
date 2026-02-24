@@ -70,10 +70,9 @@ public class VisualizationController extends Observer {
     private void replaySteps(SimulationSpeed speed) {
         for (SortStep step : steps) {
             if (!running) break;
-            for (int idx : step.getHighlightedIndices()) {
-                if (idx < step.getArrayState().length) {
-                    audio.playTone(step.getArrayState()[idx]);
-                }
+            int[] indices = step.getHighlightedIndices();
+            if (indices.length > 0 && indices[0] < step.getArrayState().length) {
+                audio.playTone(step.getArrayState()[indices[0]]);
             }
             javafx.application.Platform.runLater(() -> display.updateDisplay(step));
             try {
@@ -83,6 +82,7 @@ public class VisualizationController extends Observer {
                 break;
             }
         }
+        audio.reset();
         running = false;
         javafx.application.Platform.runLater(display::notifySortComplete);
     }
