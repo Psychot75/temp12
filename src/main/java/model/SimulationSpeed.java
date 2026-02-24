@@ -1,9 +1,5 @@
 package model;
 
-/**
- * Represents the speed of the sorting visualization simulation.
- * Maps to a delay in milliseconds between each displayed step.
- */
 public enum SimulationSpeed {
 
     SLOW(800),
@@ -16,9 +12,7 @@ public enum SimulationSpeed {
         this.delayMs = delayMs;
     }
 
-    public int getDelayMs() {
-        return delayMs;
-    }
+    public int getDelayMs() { return delayMs; }
 
     @Override
     public String toString() {

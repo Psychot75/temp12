@@ -6,8 +6,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        AppMediator mediator = new AppMediator(primaryStage);
-        mediator.start();
+        new AppMediator(primaryStage).start();
     }
 
     public static void main(String[] args) {
